@@ -1,0 +1,137 @@
+@mixin flex($a,$j){
+    display: flex;
+    align-items: $a;
+    justify-content: $j;
+}
+
+@mixin size($h,$w){
+    height: $h;
+    width: $w;
+}
+
+@mixin pad{
+    @media(max-width:768px){
+      @content;
+    }
+}
+
+@mixin mobile{
+    @media(max-width:375px){
+      @content;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    transition: 0.2s;
+    // border: 2px solid white;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    @include flex(center,center);
+}
+
+.container {
+    @include flex(center,space-around);
+    width: 100%;
+    max-width: 1400px;
+    h1 {
+        @include flex(center,space-around);
+        font-size: 72px;
+        writing-mode: vertical-lr;
+        text-orientation: mixed;
+        text-decoration: underline;
+        margin-right: 8%;
+        line-height: 100px;
+        border-top: 16px solid #000;
+        height: 100%;
+    }
+    .imageBox {
+        @include flex(center,center);
+        flex-wrap: wrap;
+        img {
+            @include size(250px,250px);
+            margin: 30px;
+            background-size: cover;
+            background-position: center center;   
+            cursor: pointer;                 
+        }
+        img:hover {
+            box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
+            border: none;    
+            transform: translate(-8px,-8px);
+        }
+    }
+}
+
+.modal {
+    @include flex(center,space-around);
+    @include size(100%,100%);
+    position: fixed;
+    background-color: rgba(0,0,0,0.9);
+    color: #fff;
+    padding-bottom: 4%;
+    .content {
+        @include flex(space-around,space-between);
+        flex-direction: column;
+        height: 80%;
+        width: 20%;
+        p {
+            font-size: 36px;
+        }
+        .nowNum {
+            position: relative;
+            font-size: 72px;
+            top: -8%;          
+        }
+        i {
+            margin-top: 24px;
+            font-size: 16px;
+        }
+    }
+    .imgBox {
+        position: relative;
+        height: 80%;
+        width: 40%;
+        img {
+            height: 100%;
+            border: 12px solid #fff;
+            border-radius: 8px;
+
+        }
+        .clear {
+            @include flex(center,center);
+            @include size(30px,30px);
+            background-color: #fff;
+            color: #000;
+            border-radius: 50%;
+            position: absolute;
+            top: 4%;
+            right: -8%;
+            cursor: pointer;
+            border: none;
+        }
+        .arrowRight,.arrowLeft {
+            @include flex(center,center);
+            @include size(30px,30px);
+            color: #fff;
+            position: absolute;
+            cursor: pointer;
+            font-size: 30px;
+            top: 50%;
+            transform: translateY(-50%) scale(1.5,2)
+        }
+        .arrowRight {
+            right: -5%;
+        }
+        .arrowLeft {
+            left: 5%;
+        }
+    }
+}
