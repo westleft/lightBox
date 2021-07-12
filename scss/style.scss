@@ -27,6 +27,7 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     transition: 0.2s;
+    user-select: none;
     // border: 2px solid white;
 }
 
@@ -35,6 +36,9 @@ html,body {
     height: 100%;
     position: relative;
     @include flex(center,center);
+    @include mobile{
+        height: 200vh;
+    }
 }
 
 .container {
@@ -51,20 +55,38 @@ html,body {
         line-height: 100px;
         border-top: 16px solid #000;
         height: 100%;
+        @include mobile{
+            font-size: 40px;
+            line-height: 60px;
+            position: fixed;
+            left: 12px;
+            top: 0;
+            height: 70%;
+        }
     }
     .imageBox {
         @include flex(center,center);
         flex-wrap: wrap;
+
+        @include mobile{
+            @include flex(center,flex-end);
+        }   
         img {
             @include size(250px,250px);
             margin: 30px;
             background-size: cover;
             background-position: center center;   
-            cursor: pointer;                 
+            cursor: pointer;      
+            box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+            border: none;    
+            @include mobile{
+                margin: 8px;
+                @include size(150px,150px);
+                margin-right: 20px;
+            }       
         }
         img:hover {
-            box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
-            border: none;    
+            box-shadow: 20px 20px 20px rgba(0,0,0,0.2);
             transform: translate(-8px,-8px);
         }
     }
@@ -73,6 +95,7 @@ html,body {
 .modal {
     @include flex(center,space-around);
     @include size(100%,100%);
+    display: none;
     position: fixed;
     background-color: rgba(0,0,0,0.9);
     color: #fff;
@@ -103,19 +126,22 @@ html,body {
             height: 100%;
             border: 12px solid #fff;
             border-radius: 8px;
-
         }
         .clear {
             @include flex(center,center);
-            @include size(30px,30px);
+            @include size(24px,24px);
             background-color: #fff;
             color: #000;
             border-radius: 50%;
             position: absolute;
             top: 4%;
-            right: -8%;
+            right: -18%;
             cursor: pointer;
             border: none;
+            opacity: 0.5;
+        }
+        .clear:hover {
+            opacity: 0.9;
         }
         .arrowRight,.arrowLeft {
             @include flex(center,center);
@@ -128,10 +154,19 @@ html,body {
             transform: translateY(-50%) scale(1.5,2)
         }
         .arrowRight {
-            right: -5%;
+            display: flex;
+            right: -16%;
+            opacity: 0.5;
         }
         .arrowLeft {
             left: 5%;
+            opacity: 0.5;
+        }
+        .arrowLeft:hover {
+            opacity: 0.9;
+        }
+        .arrowRight:hover {
+            opacity: 0.9;
         }
     }
 }
