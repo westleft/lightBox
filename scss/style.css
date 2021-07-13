@@ -27,7 +27,7 @@ html, body {
           justify-content: center;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   html, body {
     height: 200vh;
   }
@@ -67,14 +67,43 @@ html, body {
   height: 100%;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .container h1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     font-size: 40px;
     line-height: 60px;
     position: fixed;
     left: 12px;
     top: 0;
     height: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container h1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: 40px;
+    line-height: 60px;
+    position: fixed;
+    left: 12px;
+    top: 0;
+    height: 50%;
   }
 }
 
@@ -92,7 +121,21 @@ html, body {
       flex-wrap: wrap;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
+  .container .imageBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
   .container .imageBox {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -118,11 +161,11 @@ html, body {
   border: none;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .container .imageBox img {
     margin: 8px;
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
     margin-right: 20px;
   }
 }
@@ -152,6 +195,18 @@ html, body {
   padding-bottom: 4%;
 }
 
+@media (max-width: 376px) {
+  .modal {
+    height: 200vh;
+    width: 100vw;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: none;
+  }
+}
+
 .modal .content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -168,10 +223,33 @@ html, body {
           flex-direction: column;
   height: 80%;
   width: 20%;
+  opacity: 0.9;
+}
+
+@media (max-width: 376px) {
+  .modal .content {
+    height: 5%;
+    width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: space-between;
+        -ms-flex-align: space-between;
+            align-items: space-between;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 .modal .content p {
   font-size: 36px;
+}
+
+@media (max-width: 376px) {
+  .modal .content p {
+    font-size: 24px;
+  }
 }
 
 .modal .content .nowNum {
@@ -188,13 +266,27 @@ html, body {
 .modal .imgBox {
   position: relative;
   height: 80%;
-  width: 40%;
+  width: 50%;
+}
+
+@media (max-width: 376px) {
+  .modal .imgBox {
+    height: 60%;
+    width: 80%;
+  }
 }
 
 .modal .imgBox img {
-  height: 100%;
-  border: 12px solid #fff;
+  height: auto;
+  width: 100%;
+  border: 12px solid rgba(255, 255, 255, 0.9);
   border-radius: 8px;
+}
+
+@media (max-width: 376px) {
+  .modal .imgBox img {
+    border: 6px solid #fff;
+  }
 }
 
 .modal .imgBox .clear {
@@ -213,11 +305,18 @@ html, body {
   color: #000;
   border-radius: 50%;
   position: absolute;
-  top: 4%;
-  right: -18%;
+  top: 6%;
+  right: 4%;
   cursor: pointer;
   border: none;
-  opacity: 0.5;
+  opacity: 0.6;
+}
+
+@media (max-width: 376px) {
+  .modal .imgBox .clear {
+    top: 2%;
+    right: 6%;
+  }
 }
 
 .modal .imgBox .clear:hover {
@@ -249,12 +348,12 @@ html, body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  right: -16%;
+  right: 4%;
   opacity: 0.5;
 }
 
 .modal .imgBox .arrowLeft {
-  left: 5%;
+  left: 4%;
   opacity: 0.5;
 }
 
